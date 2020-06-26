@@ -7,6 +7,7 @@ Code for generating images from of the Madelbrot set.
 usage: fracpgm3 \[options\] > image.ppm
 
 where \[options\] are:
+
 -width n    where n (int) is the width of the image in pixels<br>
 -aspect n   where n (float) is the aspect ratio of the image (width/height)<br>
 -xpos n     where n (float) is the x coordinate in the fractal of the middle pixel in the image<br>
