@@ -1,6 +1,6 @@
 # fracpgm3
 
-Code for generating images from of the Madelbrot set.
+Code for generating images from the Madelbrot set.
 
 ## Usage
  
