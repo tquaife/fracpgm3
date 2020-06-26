@@ -7,12 +7,12 @@ Code for generating images from of the Madelbrot set.
 usage: fracpgm3 \[options\] > image.ppm
 
 where \[options\] are:
--width n    where n (int) is the width of the image in pixels
--aspect n   where n (float) is the aspect ratio of the image (width/height)
--xpos n     where n (float) is the x coordinate in the fractal of the middle pixel in the image
--ypos n     where n (float) is the x coordinate in the fractal of the middle pixel in the image
--over n     where n (int) is the number of times to oversample each pixel (in each axis)
--iter n     where n (int) is the maximum number of itterations to use for each pixel
+-width n    where n (int) is the width of the image in pixels<br>
+-aspect n   where n (float) is the aspect ratio of the image (width/height)<br>
+-xpos n     where n (float) is the x coordinate in the fractal of the middle pixel in the image<br>
+-ypos n     where n (float) is the x coordinate in the fractal of the middle pixel in the image<br>
+-over n     where n (int) is the number of times to oversample each pixel (in each axis)<br>
+-iter n     where n (int) is the maximum number of itterations to use for each pixel<br>
 
 
 ## Example
@@ -28,11 +28,12 @@ fracpgm3 -xpos -0.5 -ypos 0.0 -zoom 1 | display -
 And slowly change xpos, ypos and zoom until you find a point you want to image, then ramp up the width, iterations and oversampling. 
 
 
-## Install
-
-I have only ever tried installing on Linux. As long as you have the standard development tools installed (specifically `gcc` and `make`) it should just be a case of typing `make`.
-
 ## Sample image:
 
 ![Example image](example1.png)
+
+
+## Install
+
+I have only ever tried installing on Linux. As long as you have the standard development tools installed (specifically `gcc` and `make`) it should just be a case of typing `make`.
 
