@@ -198,7 +198,7 @@ fractal      *frac ;
 {
 
 
-    int     i ;
+    int     i, use_aspect=1 ;
     double  aspect_ratio=1., zoom=1., xpos=-0.5, ypos=0.;
     void    usage();
         
@@ -207,8 +207,14 @@ fractal      *frac ;
         if( *argv[ i ] == '-' ){    
     
                  if( !strncasecmp( argv[ i ], "-width", 2  ) ) pgm_head->width  = atoi( argv[ ++i ] ) ;
-            else if( !strncasecmp( argv[ i ], "-aspect", 2 ) ) aspect_ratio = atof( argv[ ++i ] ) ;
-            
+            else if( !strncasecmp( argv[ i ], "-aspect", 2 ) ){
+                 aspect_ratio = atof( argv[ ++i ] ) ;
+                 use_aspect = 1;
+            }     
+            else if( !strncasecmp( argv[ i ], "-height", 2 ) ){
+                pgm_head->height= atof( argv[ ++i ] ) ;
+                use_aspect = 0 ;
+            }
             else if( !strncasecmp( argv[ i ], "-xpos", 5 ) ) xpos = atof( argv[ ++i ] ) ;
             else if( !strncasecmp( argv[ i ], "-ypos", 5 ) ) ypos = atof( argv[ ++i ] ) ;
             else if( !strncasecmp( argv[ i ], "-zoom", 5 ) ) zoom = atof( argv[ ++i ] ) ;
@@ -235,7 +241,11 @@ fractal      *frac ;
     translate options into the parameters needed
     by the code
     */
-    pgm_head->height = pgm_head->width / aspect_ratio ;
+    if( use_aspect==1 ){
+        pgm_head->height = pgm_head->width / aspect_ratio ;
+    }else{
+        aspect_ratio= pgm_head->width/(float)pgm_head->height ;
+    }
     
     frac->xmin = xpos-1.5/zoom;
     frac->xmax = xpos+1.5/zoom;
